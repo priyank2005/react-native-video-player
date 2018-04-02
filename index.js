@@ -142,7 +142,9 @@ export default class VideoPlayer extends Component {
 
   onStartPress() {
     if (this.props.onStart) {
-      this.props.onStart();
+      if (!this.props.onStart()) {
+        return; 
+      }
     }
 
     this.setState(state => ({
